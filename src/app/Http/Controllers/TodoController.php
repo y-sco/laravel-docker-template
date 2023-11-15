@@ -61,4 +61,11 @@ class TodoController extends Controller
         // dd($this->todo->id, $todo->id);
         return redirect()->route('todo.show', $todo->id);
     }
+
+    public function delete($id)
+    {
+        $todo = $this->todo->find($id);
+        $todo->delete();
+        return redirect()->route('todo.index');
+    }
 }
