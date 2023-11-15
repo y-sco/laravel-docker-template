@@ -35,4 +35,13 @@ class TodoController extends Controller
         return redirect()->route('todo.index');
         // dd($this->todo);
     }
+
+    public function show($id)
+    {
+        $todo = $this->todo->find($id);
+        // findメソッドはそのモデルが対応するテーブルのプライマリーキーを引数に受け取り、その対象レコードを1件取得する。
+        // dd(id);
+        return view('todo.show', ['todo' => $todo]);
+    }
+
 }
